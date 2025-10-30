@@ -1,0 +1,16 @@
+import java.util.Stack;
+
+public class Test {
+    public boolean IsPopOrder (int[] pushV, int[] popV) {
+        Stack<Integer> stack = new Stack<>();
+        int j=0;
+        for (int i = 0; i < pushV.length; i++) {
+            stack.push(pushV[i]);
+            while (!stack.empty()&&j< popV.length&&stack.peek()==popV[j]) {
+                    stack.pop();
+                    j++;
+            }
+        }
+        return stack.empty();
+    }
+}
